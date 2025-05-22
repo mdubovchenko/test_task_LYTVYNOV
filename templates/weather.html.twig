@@ -1,0 +1,14 @@
+<h1>Погода в {{ weather.city ?? city }}</h1>
+
+{% if weather.error %}
+    <p><strong>Помилка:</strong> {{ weather.error }}</p>
+{% else %}
+    <ul>
+        <li>Країна: {{ weather.country }}</li>
+        <li>Температура: {{ weather.temperature }}°C</li>
+        <li>Стан: {{ weather.condition }}</li>
+        <li>Вологість: {{ weather.humidity }}%</li>
+        <li>Швидкість вітру: {{ weather.wind_speed }} км/год</li>
+        <li>Оновлено: {{ weather.last_updated }}</li>
+    </ul>
+{% endif %}

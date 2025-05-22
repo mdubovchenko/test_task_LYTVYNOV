@@ -1,0 +1,20 @@
+parameters:
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        bind:
+            $weatherApiKey: '%env(WEATHER_API_KEY)%'
+            $weatherClient: '@weather.client'
+
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+
+    annotation_reader:
+        class: Doctrine\Common\Annotations\AnnotationReader
